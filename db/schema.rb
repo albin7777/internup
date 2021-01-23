@@ -10,9 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_01_23_091304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "applications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "position_id", null: false
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["position_id"], name: "index_applications_on_position_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "salary"
+    t.string "duration"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_positions_on_user_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "position_id", null: false
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["position_id"], name: "index_submissions_on_position_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "type"
+    t.text "description"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "applications", "positions"
+  add_foreign_key "applications", "users"
+  add_foreign_key "positions", "users"
+  add_foreign_key "submissions", "positions"
+  add_foreign_key "submissions", "users"
 end
