@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  TYPE = ['business', 'intern']
+  ROLES = ['business', 'intern']
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :submissions_as_owner, through: :positions, source: :submissions
   validates :name, presence: true
   validates :email, uniqueness: true
-  validates :type, presence: true
+  validates :role, presence: true
   validates :description, presence: true
-  validates :type, inclusion: { in: TYPE, message: "Please select business or intern"}
+  validates :role, inclusion: { in: ROLES, message: "Please select business or intern"}
 end
