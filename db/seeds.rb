@@ -49,3 +49,6 @@ puts "Creating submission..."
 
   )
 end
+
+puts "Creating demo..."
+User.create(name: "Yuta", email: "yuta@gmail.com", password: "123456", role: 'intern', description:"")
