@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'devise'
 gem 'faker'
+gem 'pundit'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
