@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="#">
-    <img src="https://www.flaticon.com/svg/vstatic/svg/2947/2947619.svg?token=exp=1611672250~hmac=5f4e7cd08e76e79bb0cc16f861427ae7" />
+    <%= image_tag "logo.svg", alt: "logo" %>
     <h1 class="ml-2 navbar-brand font-weight-bold">Intern Up</h1>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,9 @@
       <% end %>
       </li>
       <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://www.flaticon.com/svg/vstatic/svg/1177/1177568.svg?token=exp=1611672973~hmac=a0d0ceb6b0685c70bbb00568079e526c" />
+        <% if user_signed_in? %>
+          <%= image_tag "user_icon.svg", alt: "user_icon", class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false" %>
+          <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>

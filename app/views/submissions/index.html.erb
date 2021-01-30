@@ -1,0 +1,11 @@
+<div class="container">
+
+  <div>
+    <h1><%= "Your application has been sent!" %></h1>
+    <h2><%= "Your Applications" %></h2>
+  </div>
+
+  <% @submissions.each do |submission| %>
+  <%= render "components/internship-description", position: submission.position, status: submission.status%>
+  <% end %>
+</div>

@@ -50,11 +50,20 @@ puts "Creating submission..."
   )
 end
 
-puts "Creating demo intern user"
+puts "Creating demo intern user/Chii"
   User.create!(
     name: "Chii Law",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "cyee3012@hotmail.co.uk",
+    password: '123456'
+  )
+
+puts "Creating demo intern user/Mayu"
+  User.create!(
+    name: "Mayu",
+    role: 'intern',
+    description: "I am a student looking for a #{Faker::Job.title} internship",
+    email: "mayu.miyoshi1313@gmail.com",
     password: '123456'
   )
