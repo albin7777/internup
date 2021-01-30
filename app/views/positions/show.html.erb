@@ -15,9 +15,9 @@
       </div>
       <div>
         <% if @status == false %>
-          <button name="button" type="submit" class="btn btn-flat">
-            Apply
-          </button>
+         <div>
+         <%= link_to "Apply", new_position_submission_path(@position), class: "btn btn-flat" %>
+         </div>
         <% end %>
       </div>
     </div>

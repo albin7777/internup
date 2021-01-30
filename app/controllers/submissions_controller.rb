@@ -16,7 +16,7 @@ class SubmissionsController < ApplicationController
     @submission.position = @position
     @submission.status = 'pending'
     if @submission.save
-      redirect_to submission_path(@submission), notice: "Thank you for your application. Good luck!"
+      redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
     else
       render :new
     end
