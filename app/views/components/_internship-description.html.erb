@@ -3,6 +3,9 @@
       <%= image_tag images.sample, alt: images.sample %>
           <div class="card-job-description-infos">
             <h2> <%= link_to position.title, position_path(position) %> </h2>
+            <% if defined? status %>
+            <h2> <%= link_to status, position_path(position) %> </h2>
+            <% end %>
             <p><%= position.description %>. <strong><%= position.salary %> yen per hour</strong> </p>
           </div>
     </div>

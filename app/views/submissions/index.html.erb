@@ -6,6 +6,6 @@
   </div>
 
   <% @submissions.each do |submission| %>
-  <%= render "components/internship-description", position: submission.position%>
+  <%= render "components/internship-description", position: submission.position, status: submission.status%>
   <% end %>
 </div>
