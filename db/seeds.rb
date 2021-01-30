@@ -52,7 +52,7 @@ end
 
 puts "Creating demo intern user"
   User.create!(
-    name: "Chii",
+    name: "Chii Law",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "cyee3012@hotmail.co.uk",

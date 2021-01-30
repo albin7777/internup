@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'positions#index'
+  root to: 'pages#home'
 
   resources :positions, only: [ :index, :show] do
     resources :submissions, only: [ :new, :create]
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :submissions, only: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
 end
 
 

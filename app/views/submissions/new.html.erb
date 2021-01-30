@@ -1,0 +1,12 @@
+<%= simple_form_for [@position, @submission] do |f| %>
+
+  <%= f.input :user, input_html: {value:current_user.name}, disabled:true %> 
+  <%= f.input :position, input_html: {value:@position.title}, disabled:true %>
+  <%= f.input :email, input_html: {value:current_user.email}, disabled:true %>
+
+  <%= %>
+  <%= %>
+  <%= f.button :submit, 'Apply', class: "btn btn-flat" %>
+<% end %>
+
+
