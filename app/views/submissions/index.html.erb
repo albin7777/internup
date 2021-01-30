@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div>
+    <h1><%= "Your application has been sent!" %></h1>
+    <h2><%= "Your Applications" %></h2>
+    <%= image_tag "image.png", alt: "job_post", width: 200 %>
+  </div>
+
+  <% @submissions.each do |submission| %>
+    <div class="card-job-description mb-2">
+          <div class="card-job-description-infos">
+            <h2> <%= link_to submission.position.title, position_path(submission.position) %> </h2>
+            <p><%= submission.position.description %>. <strong><%= submission.position.salary %> yen per hour</strong> </p>
+          </div>
+    </div>
+  <% end %>
+</div>

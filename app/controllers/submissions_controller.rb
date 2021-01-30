@@ -16,6 +16,7 @@ class SubmissionsController < ApplicationController
       redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
     else
       render :new
+    end
   end
 
   def destroy
