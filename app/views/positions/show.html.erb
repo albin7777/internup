@@ -18,6 +18,10 @@
          <div>
          <%= link_to "Apply", new_position_submission_path(@position), class: "btn btn-flat" %>
          </div>
+        <% else %>
+        <div class="mr-4">
+        You've already applied!
+        </div>
         <% end %>
       </div>
     </div>
