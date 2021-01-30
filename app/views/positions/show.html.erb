@@ -17,9 +17,11 @@
     </div>
 
     <div>
-      <button name="button" type="submit" class="btn btn-flat">
-        Apply
-      </button>
+      <% if @status == false %>
+        <button name="button" type="submit" class="btn btn-flat">
+          Apply
+        </button>
+      <% end %>
     </div>
 
   </div>

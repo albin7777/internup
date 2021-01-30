@@ -6,5 +6,6 @@ class PositionsController < ApplicationController
 
   def show
     @position = Position.find(params[:id])
+    @status = @position.submissions.any? { |submission| current_user == submission.user }
   end
 end
