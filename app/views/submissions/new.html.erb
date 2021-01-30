@@ -1,13 +1,13 @@
-<%= simple_form_for [@position, @submission] do |f| %>
-
-  <%= f.input :user, input_html: {value:current_user.name}, disabled:true %> 
-  <%= f.input :position, input_html: {value:@position.title}, disabled:true %>
-  <%= f.input :email, input_html: {value:current_user.email}, disabled:true %>
-
-
-  <%= f.input :cv, as: :file %>
-
-  <%= f.button :submit, 'Apply', class: "btn btn-flat" %>
-<% end %>
+<div class='container'>
+  <div class='col-6'>
+    <%= simple_form_for [@position, @submission] do |f| %>
+      <%= f.input :user, input_html: {value:current_user.name}, disabled:true %> 
+      <%= f.input :position, input_html: {value:@position.title}, disabled:true %>
+      <%= f.input :email, input_html: {value:current_user.email}, disabled:true %>
+      <%= f.input :cv, as: :file %>
+      <%= f.button :submit, 'Apply', class: "btn btn-flat" %>
+    <% end %>
+  </div>
+</div>
 
 
