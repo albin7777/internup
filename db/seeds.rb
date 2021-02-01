@@ -67,3 +67,12 @@ puts "Creating demo intern user/Mayu"
     email: "mayu.miyoshi1313@gmail.com",
     password: '123456'
   )
+
+puts "Creating demo intern user/Mayu"
+  User.create!(
+    name: "Albin",
+    role: 'intern',
+    description: "I am a student looking for a #{Faker::Job.title} internship",
+    email: "fabianalbin7@gmail.com",
+    password: '123456'
+  )
