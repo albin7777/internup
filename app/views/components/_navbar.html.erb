@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="positions">Internships</a>
+        <%= link_to "Internships", positions_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Applications</a>
+        <%= link_to "Applications", submissions_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
       <% if user_signed_in? %>
