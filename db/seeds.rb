@@ -5,6 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'nokogiri'
+
+filepath = "db/results.html"
+
+html_content = File.open(filepath)
+
+doc = Nokogiri::HTML(html_content)
+
+internship_title = []
+doc.search('.job-result-card__title').each do |element|
+  internship_title << element.text.strip
+end
+
+internship_description = []
+doc.search('.job-result-card__snippet').each do |element|
+  internship_description << element.text.strip
+end
 
 puts "Creating intern user"
 5.times do
@@ -31,10 +48,9 @@ end
 puts "Creating position..."
 5.times do
   Position.create!(
-
     user: User.where(role:'business').sample,
-    description: 'Looking for the stated job title',
-    title: Faker::Job.title,
+    description: internship_description.sample,
+    title: internship_title.sample,
     salary: "#{rand(800..1000)} Yen",
     duration: "#{rand(1..12)} months"
   )
@@ -65,5 +81,14 @@ puts "Creating demo intern user/Mayu"
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "mayu.miyoshi1313@gmail.com",
+    password: '123456'
+  )
+
+puts "Creating demo intern user/Albin"
+  User.create!(
+    name: "Albin",
+    role: 'intern',
+    description: "I am a student looking for a #{Faker::Job.title} internship",
+    email: "fabianalbin7@gmail.com",
     password: '123456'
   )
