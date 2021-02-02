@@ -6,6 +6,7 @@ class SubmissionsController < ApplicationController
   def new
     @submission = Submission.new
     @position = Position.find(params[:position_id])
+    authorize @submission
 
   end
 
