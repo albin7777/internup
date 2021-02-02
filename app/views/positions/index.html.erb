@@ -9,7 +9,8 @@
     <h2>Internships</h2>
     <%= render "components/searchbar" %>
   </div>
-
-  <%= render "components/internship-description" %>
+  <% @positions.each do |position| %>
+    <%= render "components/internship-description", position: position%>
+  <% end %>
 </div>
 

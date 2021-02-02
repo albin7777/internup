@@ -5,13 +5,16 @@ class SubmissionsController < ApplicationController
 
   def new
     @submission = Submission.new
+    @position = Position.find(params[:position_id])
+
   end
 
   def create
     @submission = Submission.new
     @position = Position.find(params[:position_id])
-    @submission.user_id = current_user
+    @submission.user = current_user
     @submission.position = @position
+    @submission.status = 'pending'
     if @submission.save
       redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
     else

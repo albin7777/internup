@@ -3,4 +3,5 @@ class Submission < ApplicationRecord
   belongs_to :user
   belongs_to :position
   validates :status, inclusion: { in: STATUS, message: "Please select the status" }
+  has_one_attached :cv
 end

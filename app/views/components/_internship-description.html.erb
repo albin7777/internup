@@ -1,9 +1,15 @@
-<% @positions.each do |position| %>
+<% images = ["coder.svg", "coordinator.svg", "manager.svg", "socialmedia.svg", "supervisor.svg"] %>
     <div class="card-job-description mb-2">
-      <%= image_tag @images.sample, alt: @images.sample %>
+      <%= image_tag images.sample, alt: images.sample %>
           <div class="card-job-description-infos">
             <h2> <%= link_to position.title, position_path(position) %> </h2>
+
             <p><%= position.description %>.<br><strong><%= position.salary %> yen per hour</strong> </p>
+
+            <% if defined? status %>
+              <h2> <%= status %> </h2>
+            <% end %>
+            <p><%= position.description %>. <strong><%= position.salary %> yen per hour</strong> </p>
+
           </div>
     </div>
-  <% end %>

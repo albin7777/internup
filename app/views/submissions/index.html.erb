@@ -5,11 +5,6 @@
   </div>
 
   <% @submissions.each do |submission| %>
-    <div class="card-job-description mb-2">
-          <div class="card-job-description-infos">
-            <h2> <%= link_to submission.position.title, position_path(submission.position) %> </h2>
-            <p><%= submission.position.description %>. <strong><%= submission.position.salary %> yen per hour</strong> </p>
-          </div>
-    </div>
+  <%= render "components/internship-description", position: submission.position, status: submission.status%>
   <% end %>
 </div>
