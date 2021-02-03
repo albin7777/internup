@@ -1,13 +1,12 @@
 class SubmissionsController < ApplicationController
   def index
-    @submissions = Submission.all
+    @submissions = policy_scope(Submission).order(created_at: :desc)
   end
 
   def new
     @submission = Submission.new
     @position = Position.find(params[:position_id])
     authorize @submission
-
   end
 
   def create
