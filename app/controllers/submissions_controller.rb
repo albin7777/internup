@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
     @submission.status = 'pending'
     authorize @submission
     if @submission.save
-      redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
+      redirect_to submissions_path, success: "Thank you for your application. Good luck!"
     else
       render :new
     end
