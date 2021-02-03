@@ -8,4 +8,8 @@ class SubmissionPolicy < ApplicationPolicy
   def new?
     user.role == "intern"
   end
+
+  def create?
+    user.role == "intern"
+  end
 end

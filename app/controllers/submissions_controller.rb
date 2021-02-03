@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
     @submission.user = current_user
     @submission.position = @position
     @submission.status = 'pending'
+    authorize @submission
     if @submission.save
       redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
     else
