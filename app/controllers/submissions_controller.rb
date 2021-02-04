@@ -1,12 +1,12 @@
 class SubmissionsController < ApplicationController
   def index
-    @submissions = Submission.all
+    @submissions = policy_scope(Submission).order(created_at: :desc)
   end
 
   def new
     @submission = Submission.new
     @position = Position.find(params[:position_id])
-
+    authorize @submission
   end
 
   def create
@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
     @submission.user = current_user
     @submission.position = @position
     @submission.status = 'pending'
+    authorize @submission
     if @submission.save
       redirect_to submissions_path, notice: "Thank you for your application. Good luck!"
     else
