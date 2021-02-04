@@ -92,3 +92,30 @@ puts "Creating demo intern user/Albin"
     email: "fabianalbin7@gmail.com",
     password: '123456'
   )
+
+puts "Creating demo business user/Chii"
+  User.create!(
+    name: "Chii Law",
+    role: 'business',
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-cyee3012@hotmail.co.uk",
+    password: '123456'
+  )
+
+puts "Creating demo business user/Mayu"
+  User.create!(
+    name: "Chii Law",
+    role: 'business',
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-mayu.miyoshi1313@gmail.com",
+    password: '123456'
+  )
+
+puts "Creating demo business user/Albin"
+  User.create!(
+    name: "Chii Law",
+    role: 'business',
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-fabianalbin7@gmail.com",
+    password: '123456'
+  )
