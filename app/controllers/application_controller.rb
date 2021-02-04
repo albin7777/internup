@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     if resource.role == 'intern'
       positions_path
     else
-      business_position_path
+      business_positions_path
     end
   end
 
