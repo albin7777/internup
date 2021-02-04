@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  #devise_for :businesses
   root to: 'pages#home'
 
   resources :positions, only: [ :index, :show] do

@@ -28,5 +28,4 @@ class SubmissionsController < ApplicationController
     @submission.destroy
     redirect_to submission_path(@submission.position)
   end
-
 end
