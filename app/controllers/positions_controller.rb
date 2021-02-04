@@ -17,10 +17,32 @@ class PositionsController < ApplicationController
     end
   end
 
+  def new
+    @position = Position.new
+    authorize @position
+  end
+
+  def create
+    @position = Position.new(position_params)
+    @position.user = current_user
+    authorize @position
+    if @position.save
+      redirect_to position_path(@position), success: "your position have been posted."
+    else
+      render :new
+    end
+  end
+
   def show
     @position = Position.find(params[:id])
     @status = @position.submissions.any? { |submission| current_user == submission.user }
     @images = ["coder.svg", "coordinator.svg", "manager.svg", "socialmedia.svg", "supervisor.svg"]
     authorize @position
   end
+
+private
+
+def position_params
+  params.require(:position).permit(:title, :description, :salary, :duration)
+end
 end
