@@ -1,0 +1,15 @@
+<div class='container'>
+  <div class='card_business_user'>
+
+    <% @positions.each do |position| %>
+        <p><%= position.description %>. </p>
+        <p> Salary will be <strong><%= position.salary %> yen per hour</strong></p>
+        <p> Job duration : <%= position.duration %> </p>
+    <% end %>
+
+
+  </div>
+</div>
+
+
+
