@@ -62,7 +62,6 @@ puts "Creating submission..."
     user: User.where(role:'intern').sample,
     position: Position.all.sample,
     status: Submission::STATUS.sample
-
   )
 end
 
@@ -90,5 +89,23 @@ puts "Creating demo intern user/Albin"
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "fabianalbin7@gmail.com",
+    password: '123456'
+  )
+
+  puts "Creating demo business user/Mayu"
+  User.create!(
+    name: "Mayu Miyoshi",
+    role: 'business',
+    description: "I am a business owner, want to post our #{Faker::Job.title} internship infomation",
+    email: "sakura@gmail.com",
+    password: '123456'
+  )
+
+  puts "Creating demo submission user/Mayu"
+  User.create!(
+    name: "Mayu",
+    role: 'intern',
+    description: "I am a student looking for a #{Faker::Job.title} internship",
+    email: "mayu.miyoshi1313@gmail.com",
     password: '123456'
   )
