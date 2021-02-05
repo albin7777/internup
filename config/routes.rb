@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :submissions, only: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/applicants', to: 'submissions#applicant_index'
 
   resources :business_positions do
     resources :business_submissions, only: [ :index, :show, :edit, :update]
