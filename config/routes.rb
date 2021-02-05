@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   # get "business_positions", to: "business_positions#index", as: "business_positions"
 
+resources :business_submissions, only: :index
 end
 
 
