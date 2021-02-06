@@ -1,5 +1,5 @@
 class BusinessPositionsController < ApplicationController
-  # skip_after_action :verify_policy_scoped, only: [:index, :new, :create]
+  skip_after_action :verify_policy_scoped, only: [:index, :new, :create]
   def index
     @positions = current_user.positions.order(created_at: :desc)
   end
@@ -39,5 +39,9 @@ class BusinessPositionsController < ApplicationController
 
   #def destroy
   #end
+  def submissions
+    @submissions = current_user.submissions_as_owner
+    skip_authorization
+  end
 
 end

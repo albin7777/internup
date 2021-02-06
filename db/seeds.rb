@@ -61,14 +61,14 @@ puts "Creating position..."
   )
 end
 
-puts "Creating submission..."
-5.times do
-  Submission.create!(
-    user: User.where(role:'intern').sample,
-    position: Position.all.sample,
-    status: Submission::STATUS.sample
-  )
-end
+# puts "Creating submission..."
+# 5.times do
+#   Submission.create!(
+#     user: User.where(role:'intern').sample,
+#     position: Position.all.sample,
+#     status: Submission::STATUS.sample
+#   )
+# end
 
 puts "Creating demo intern user/Chii"
   User.create!(
@@ -97,7 +97,7 @@ puts "Creating demo intern user/Albin"
     password: '123456'
   )
 
-  
+
 puts "Creating demo business user/Chii"
   User.create!(
     name: "Chii Law",
@@ -127,11 +127,19 @@ puts "Creating demo business user/Albin"
 
 puts "Creating positions for demo account"
 9.times do
-  Position.create!(
-    user: User.where(email:"b-fabianalbin7@gmail.com").first,
+  position = Position.create!(
+    user: User.where(email:"b-mayu.miyoshi1313@gmail.com").first,
     description: internship_description.sample,
     title: internship_title.sample,
     salary: "#{rand(800..1000)} Yen",
     duration: "#{rand(1..12)} months"
   )
+  User.where(role:'intern').each do |user|
+    Submission.create!(
+      user: user,
+      position: position,
+      status: 'pending'
+      )
+  end
 end
+
