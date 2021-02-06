@@ -1,19 +1,25 @@
+<% images = ["coder.svg", "coordinator.svg", "manager.svg", "supervisor.svg"] %>
 <div class='container'>
-  <h1> Welcome to the post page</h1>
-  <h2> Here is all your post </h2>
-         <div>
-         <%= link_to "Create", new_position_path, class: "btn btn-flat" %>
-         </div>
-  <div class='card_business_user'>
-
-
-    <% @positions.each do |position| %>
-        <div class ='card'><%= position.title %>.
-        Salary: <%= position.salary %> yen per hour
-        Job duration : <%= position.duration %> </div>
-    <% end %>
-
+  <h1 class="row"> Welcome to the post page</h1>
+  <div class="row flex">
+    <h2> Here are all your post </h2>
   </div>
+  <div class='card_business_user'>
+    <% @positions.each do |position| %>
+      <div class ='card'>
+        <%= link_to position.title, business_position_path(position) %><br>
+        <div>
+        <%= image_tag images.sample, alt: images.sample %>
+        </div>
+        Salary: <%= position.salary %> yen per hour<br>
+        Job duration : <%= position.duration %><br>
+      </div>
+    <% end %>
+  </div>
+
+
+
+    <%= link_to "Create", new_position_path, class: "btn btn-flat" %>
 </div>
 
 

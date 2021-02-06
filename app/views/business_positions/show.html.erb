@@ -13,4 +13,14 @@
       </div>
     </div>
   </div>
+  <div class="card-job-show mb-2">
+      <div class="d-flex justify-content-between align-items-end w-100">
+        <div class="card-job-show-infos">
+          <h2> Applicants </h2>
+          <p><% @users.each do |user| %>
+            <ul><%= user.name  %></ul>
+           <% end %></p>
+        </div>
+      </div>
+    </div>
 </div>

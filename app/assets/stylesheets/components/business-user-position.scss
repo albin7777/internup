@@ -1,0 +1,30 @@
+.card_business_user {
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  display: grid;
+  grid-gap: 16px;
+
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    border-radius: 3px;
+    margin: 15px 10px;
+    box-shadow: 0 0 2px #B9CBBE;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 10px;
+    color: black;
+    text-shadow: 0 0 0px;
+    padding: 16px;
+}
+
+.card img {
+  max-height:100%;
+  width: 120px;
+  object-fit: cover;
+}
+
