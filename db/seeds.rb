@@ -11,6 +11,9 @@ User.destroy_all
 
 
 require 'nokogiri'
+Submission.destroy_all
+Position.destroy_all
+User.destroy_all
 
 filepath = "db/results.html"
 
@@ -99,7 +102,7 @@ puts "Creating demo intern user/Albin"
 
 
 puts "Creating demo business user/Chii"
-  User.create!(
+    chii = User.create!(
     name: "Chii Law",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
@@ -108,7 +111,7 @@ puts "Creating demo business user/Chii"
   )
 
 puts "Creating demo business user/Mayu"
-  User.create!(
+    mayu = User.create!(
     name: "Mayu Miyoshi",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
@@ -117,13 +120,14 @@ puts "Creating demo business user/Mayu"
   )
 
 puts "Creating demo business user/Albin"
-  User.create!(
+    albin = User.create!(
     name: "Albin Ngawing",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
     email: "b-fabianalbin7@gmail.com",
     password: '123456'
   )
+
 
 puts "Creating positions for demo account"
 9.times do

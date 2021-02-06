@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     resources :submissions, only: [ :new, :create]
   end
 
-  resources :submissions, only: [:index, :destroy]
+  resources :submissions, only: [:index, :destroy, :update]
 
-  # get '/applicants', to: 'submissions#applicants'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "business_positions/submissions", to: "business_positions#submissions", as: "business_positions_submissions"
 
