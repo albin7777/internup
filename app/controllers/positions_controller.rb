@@ -27,7 +27,7 @@ class PositionsController < ApplicationController
     @position.user = current_user
     authorize @position
     if @position.save
-      redirect_to position_path(@position), success: "your position have been posted."
+      redirect_to business_positions_path, success: "your position have been posted."
     else
       render :new
     end
