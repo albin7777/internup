@@ -82,7 +82,7 @@ puts "Creating demo intern user/Chii"
 
 puts "Creating demo intern user/Mayu"
   User.create!(
-    name: "Mayu",
+    name: "Mayu Miyoshi",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "mayu.miyoshi1313@gmail.com",
@@ -91,7 +91,7 @@ puts "Creating demo intern user/Mayu"
 
 puts "Creating demo intern user/Albin"
   User.create!(
-    name: "Albin",
+    name: "Albin Ngawing",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "fabianalbin7@gmail.com",
@@ -109,7 +109,7 @@ puts "Creating demo business user/Chii"
 
 puts "Creating demo business user/Mayu"
   User.create!(
-    name: "Chii Law",
+    name: "Mayu Miyoshi",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
     email: "b-mayu.miyoshi1313@gmail.com",
@@ -118,7 +118,7 @@ puts "Creating demo business user/Mayu"
 
 puts "Creating demo business user/Albin"
   User.create!(
-    name: "Chii Law",
+    name: "Albin Ngawing",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
     email: "b-fabianalbin7@gmail.com",
@@ -126,7 +126,7 @@ puts "Creating demo business user/Albin"
   )
 
 puts "Creating positions for demo account"
-5.times do
+9.times do
   Position.create!(
     user: User.where(email:"b-fabianalbin7@gmail.com").first,
     description: internship_description.sample,
