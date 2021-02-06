@@ -1,19 +1,18 @@
 <div class="container">
   <div>
       <h1><%= @submission.user.name %></h1>
-      <p><%= @submission.status %></p>
+      <h2><%= "Current status" %></h2>
+      <h3><%= @submission.status %></h3>
       <%= simple_form_for @submission do |f|  %>
         <%= f.input :status, as: :hidden, input_html: {value: "accepted" } %>
-        <%= f.submit "accept" %>
+        <%= f.submit "accept　✓",{class: 'btn btn-flat'} %>
       <% end %>
       <%= simple_form_for @submission do |f| %>
         <%= f.input :status, as: :hidden, input_html: {value: "rejected" } %>
-        <%= f.submit "reject" %>
+        <%= f.submit "reject　✗",{class: 'btn btn-flat'}  %>
       <% end %>
   </div>
-  <div class="card-job-show mb-2">
-    <div class="d-flex justify-content-between align-items-end w-100">
-    </div>
-    <%= cl_image_tag("#{@submission.cv.key}.jpg", width:600, height:300 ) %>
+  <div>
+    <%= cl_image_tag("#{@submission.cv.key}.jpg",width:800, height:1000) %>
   </div>
 </div>
