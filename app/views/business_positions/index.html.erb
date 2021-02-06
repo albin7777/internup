@@ -1,7 +1,11 @@
 <div class='container'>
   <h1> Welcome to the post page</h1>
   <h2> Here is all your post </h2>
+         <div>
+         <%= link_to "Create", new_position_path, class: "btn btn-flat" %>
+         </div>
   <div class='card_business_user'>
+
 
     <% @positions.each do |position| %>
         <div class ='card'><%= position.title %>.
