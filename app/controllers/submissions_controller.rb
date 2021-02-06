@@ -10,7 +10,7 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    @submission = Submission.new
+    @submission = Submission.new(submission_params)
     @position = Position.find(params[:position_id])
     @submission.user = current_user
     @submission.position = @position
@@ -27,5 +27,11 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.destroy
     redirect_to submission_path(@submission.position)
+  end
+
+  private
+
+  def submission_params
+    params.require(:submission).permit(:cv)
   end
 end
