@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Submission.destroy_all
+Position.destroy_all
+User.destroy_all
+
+
 require 'nokogiri'
 Submission.destroy_all
 Position.destroy_all
@@ -59,14 +64,14 @@ puts "Creating position..."
   )
 end
 
-puts "Creating submission..."
-5.times do
-  Submission.create!(
-    user: User.where(role:'intern').sample,
-    position: Position.all.sample,
-    status: Submission::STATUS.sample
-  )
-end
+# puts "Creating submission..."
+# 5.times do
+#   Submission.create!(
+#     user: User.where(role:'intern').sample,
+#     position: Position.all.sample,
+#     status: Submission::STATUS.sample
+#   )
+# end
 
 puts "Creating demo intern user/Chii"
   User.create!(
@@ -97,7 +102,7 @@ puts "Creating demo intern user/Albin"
 
 
 puts "Creating demo business user/Chii"
-    chill = User.create!(
+    chii = User.create!(
     name: "Chii Law",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
@@ -123,11 +128,22 @@ puts "Creating demo business user/Albin"
     password: '123456'
   )
 
-puts "Creating position for mayu"
-  Position.create!(
-    user: mayu,
-    description: "This is sales position. We offer training as well so that you can join",
-    title: "Sales assitant",
-    salary: "#{rand(1500..2000)} Yen",
+
+puts "Creating positions for demo account"
+9.times do
+  position = Position.create!(
+    user: User.where(email:"b-mayu.miyoshi1313@gmail.com").first,
+    description: internship_description.sample,
+    title: internship_title.sample,
+    salary: "#{rand(800..1000)} Yen",
     duration: "#{rand(1..12)} months"
   )
+  User.where(role:'intern').each do |user|
+    Submission.create!(
+      user: user,
+      position: position,
+      status: 'pending'
+      )
+  end
+end
+

@@ -7,6 +7,7 @@ class BusinessPositionsController < ApplicationController
   def show
     @position = Position.find(params[:id])
     authorize @position
+    @users = policy_scope(User).order(created_at: :desc)
   end
 
   def new
@@ -39,5 +40,9 @@ class BusinessPositionsController < ApplicationController
 
   #def destroy
   #end
+  def submissions
+    @submissions = current_user.submissions_as_owner
+    skip_authorization
+  end
 
 end

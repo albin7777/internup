@@ -1,0 +1,9 @@
+<div class='container'>
+  <div class='card_business_user'>
+
+    <% @submissions.each do |submission| %>
+        <p>User ID: <%= submission.user_id %>. </p>
+        <p> Position ID: <%= submission.position_id %></p>
+    <% end %>
+  </div>
+</div>
