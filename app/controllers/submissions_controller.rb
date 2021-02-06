@@ -3,6 +3,10 @@ class SubmissionsController < ApplicationController
     @submissions = policy_scope(Submission).order(created_at: :desc)
   end
 
+  def applicants
+    @submissions = policy_scope(Submission).order(created_at: :desc)
+  end
+
   def new
     @submission = Submission.new
     @position = Position.find(params[:position_id])

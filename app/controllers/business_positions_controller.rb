@@ -1,5 +1,5 @@
 class BusinessPositionsController < ApplicationController
-  skip_after_action :verify_policy_scoped, only: [:index, :new, :create]
+  # skip_after_action :verify_policy_scoped, only: [:index, :new, :create]
   def index
     @positions = current_user.positions.order(created_at: :desc)
   end
