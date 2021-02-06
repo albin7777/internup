@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Submission.destroy_all
+Position.destroy_all
+User.destroy_all
+
+
 require 'nokogiri'
 
 filepath = "db/results.html"
@@ -119,3 +124,14 @@ puts "Creating demo business user/Albin"
     email: "b-fabianalbin7@gmail.com",
     password: '123456'
   )
+
+puts "Creating positions for demo account"
+9.times do
+  Position.create!(
+    user: User.where(email:"b-fabianalbin7@gmail.com").first,
+    description: internship_description.sample,
+    title: internship_title.sample,
+    salary: "#{rand(800..1000)} Yen",
+    duration: "#{rand(1..12)} months"
+  )
+end

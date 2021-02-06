@@ -74,6 +74,29 @@
   position: absolute;
 }
 
+.card_business_user {
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  display: grid;
+
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    border-radius: 1px;
+    margin: 15px 10px;
+    box-shadow: 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 10px;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0 0 0px;
+    padding: 16px;
+}
 
 
 
