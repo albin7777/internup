@@ -1,15 +1,18 @@
 <div class='container'>
+  <h1> Welcome to the post page</h1>
+  <h2> Here is all your post </h2>
   <div class='card_business_user'>
 
     <% @positions.each do |position| %>
-        <p><%= position.description %>. </p>
-        <p> Salary will be <strong><%= position.salary %> yen per hour</strong></p>
-        <p> Job duration : <%= position.duration %> </p>
+        <div class ='card'><%= position.title %>.
+        Salary: <%= position.salary %> yen per hour
+        Job duration : <%= position.duration %> </div>
     <% end %>
-
 
   </div>
 </div>
 
 
+<% # should be able to show the business position that is created %>
+<% # accepting/rejecting business applications on the view %>
 
