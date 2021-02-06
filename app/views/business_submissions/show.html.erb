@@ -1,11 +1,19 @@
 <div class="container">
   <div>
-      <h1><%= " #{@submission.user.name}" %></h1>
-    <%= render "components/searchbar" %>
+      <h1><%= @submission.user.name %></h1>
+      <p><%= @submission.status %></p>
+      <%= simple_form_for @submission do |f|  %>
+        <%= f.input :status, as: :hidden, input_html: {value: "accepted" } %>
+        <%= f.submit "accept" %>
+      <% end %>
+      <%= simple_form_for @submission do |f| %>
+        <%= f.input :status, as: :hidden, input_html: {value: "rejected" } %>
+        <%= f.submit "reject" %>
+      <% end %>
   </div>
   <div class="card-job-show mb-2">
     <div class="d-flex justify-content-between align-items-end w-100">
     </div>
-    <%= cl_image_tag("#{@submission.cv.key}.jpg", ) %>
+    <%= cl_image_tag("#{@submission.cv.key}.jpg", width:600, height:300 ) %>
   </div>
 </div>

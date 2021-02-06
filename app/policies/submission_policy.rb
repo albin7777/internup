@@ -12,4 +12,12 @@ class SubmissionPolicy < ApplicationPolicy
   def create?
     user.role == "intern"
   end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user.role == "business"
+  end
 end

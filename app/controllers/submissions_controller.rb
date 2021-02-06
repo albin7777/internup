@@ -23,6 +23,17 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def edit
+    @submission = Submission.find(params[:id])
+  end
+
+  def update
+    @submission = Submission.find(params[:id])
+    @submission.update(submission_params)
+    authorize @submission
+    redirect_to business_submission_path(@submission)
+  end
+
   def destroy
     @submission = Submission.find(params[:id])
     @submission.destroy
@@ -32,6 +43,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:cv)
+    params.require(:submission).permit(:cv, :status)
   end
 end
