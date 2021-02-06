@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'nokogiri'
+Submission.destroy_all
+Position.destroy_all
+User.destroy_all
 
 filepath = "db/results.html"
 
@@ -92,9 +95,9 @@ puts "Creating demo intern user/Albin"
     password: '123456'
   )
 
-  
+
 puts "Creating demo business user/Chii"
-  User.create!(
+    chill = User.create!(
     name: "Chii Law",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
@@ -103,7 +106,7 @@ puts "Creating demo business user/Chii"
   )
 
 puts "Creating demo business user/Mayu"
-  User.create!(
+    mayu = User.create!(
     name: "Mayu Miyoshi",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
@@ -112,10 +115,19 @@ puts "Creating demo business user/Mayu"
   )
 
 puts "Creating demo business user/Albin"
-  User.create!(
+    albin = User.create!(
     name: "Albin Ngawing",
     role: 'business',
     description: "We are a company in the #{Faker::Job.field} industry",
     email: "b-fabianalbin7@gmail.com",
     password: '123456'
+  )
+
+puts "Creating position for mayu"
+  Position.create!(
+    user: mayu,
+    description: "This is sales position. We offer training as well so that you can join",
+    title: "Sales assitant",
+    salary: "#{rand(1500..2000)} Yen",
+    duration: "#{rand(1..12)} months"
   )
