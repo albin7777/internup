@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   devise_for :users
   #devise_for :businesses
   root to: 'pages#home'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :submissions, only: [:index, :destroy]
 
-  get '/applicants', to: 'submissions#applicants'
+  # get '/applicants', to: 'submissions#applicants'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :business_positions do

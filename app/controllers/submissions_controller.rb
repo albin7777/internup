@@ -4,10 +4,7 @@ class SubmissionsController < ApplicationController
   end
 
   def applicants
-    index
-    @position = Position.find(params[:id])
-    @submission.position = @position
-    @position.user_id = current_user
+    @submissions = policy_scope(Submission).order(created_at: :desc)
   end
 
   def new
