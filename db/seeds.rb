@@ -76,7 +76,7 @@ puts "Creating demo intern user/Chii"
 
 puts "Creating demo intern user/Mayu"
   User.create!(
-    name: "Mayu",
+    name: "Mayu Miyoshi",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "mayu.miyoshi1313@gmail.com",
@@ -85,27 +85,37 @@ puts "Creating demo intern user/Mayu"
 
 puts "Creating demo intern user/Albin"
   User.create!(
-    name: "Albin",
+    name: "Albin Ngawing",
     role: 'intern',
     description: "I am a student looking for a #{Faker::Job.title} internship",
     email: "fabianalbin7@gmail.com",
     password: '123456'
   )
 
-  puts "Creating demo business user/Mayu"
+  
+puts "Creating demo business user/Chii"
   User.create!(
-    name: "Mayu Miyoshi",
+    name: "Chii Law",
     role: 'business',
-    description: "I am a business owner, want to post our #{Faker::Job.title} internship infomation",
-    email: "sakura@gmail.com",
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-cyee3012@hotmail.co.uk",
     password: '123456'
   )
 
-  puts "Creating demo submission user/Mayu"
+puts "Creating demo business user/Mayu"
   User.create!(
-    name: "Mayu",
-    role: 'intern',
-    description: "I am a student looking for a #{Faker::Job.title} internship",
-    email: "mayu.miyoshi1313@gmail.com",
+    name: "Mayu Miyoshi",
+    role: 'business',
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-mayu.miyoshi1313@gmail.com",
+    password: '123456'
+  )
+
+puts "Creating demo business user/Albin"
+  User.create!(
+    name: "Albin Ngawing",
+    role: 'business',
+    description: "We are a company in the #{Faker::Job.field} industry",
+    email: "b-fabianalbin7@gmail.com",
     password: '123456'
   )

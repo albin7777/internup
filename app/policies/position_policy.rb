@@ -5,8 +5,12 @@ class PositionPolicy < ApplicationPolicy
     end
   end
 
-  def index?
+  def new?
+    user.role == "business"
+  end
 
+  def create?
+    user.role == "business"
   end
 
   def show?
