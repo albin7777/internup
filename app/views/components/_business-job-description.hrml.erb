@@ -1,0 +1,9 @@
+<div class='card_business_user'>
+  <% @positions.each do |position| %>
+    <div class ='card'>
+      <%= position.title %><br>
+      Salary: <%= position.salary %> yen per hour<br>
+      Job duration : <%= position.duration %><br>
+    </div>
+  <% end %>
+</div>
