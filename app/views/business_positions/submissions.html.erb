@@ -11,14 +11,10 @@
       <%=link_to business_submission_path(submission) do %>
         <div class='card'>
           <div><%= submission.user.name %></div>
+          <%= image_tag "user_icon.svg", style: "height:50%;width:auto;" %>
           <div><%= submission.position.title %></div>
         </div>
-
         <%end%>
       <% end %>
-
-
-
-
     </div>
 </div>
