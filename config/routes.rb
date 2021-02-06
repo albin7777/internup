@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #devise_for :businesses
   root to: 'pages#home'
 
-  resources :positions, only: [ :index, :show] do
+  resources :positions, only: [ :index, :show, :new, :create] do
     resources :submissions, only: [ :new, :create]
   end
 

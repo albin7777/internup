@@ -1,5 +1,5 @@
 class BusinessPositionsController < ApplicationController
-  skip_after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_policy_scoped, only: [:index, :new, :create]
   def index
     @positions = current_user.positions.order(created_at: :desc)
   end
@@ -16,7 +16,6 @@ class BusinessPositionsController < ApplicationController
 
   def create
     @position = Position.new
-    @user = user.find(params[:id])
     @position.user = current_user
     authorize @position
     if @position.save
