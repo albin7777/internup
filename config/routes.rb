@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   # get '/applicants', to: 'submissions#applicants'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "business_positions/submissions", to: "business_positions#submissions", as: "business_positions_submissions"
+
 
   resources :business_positions do
     resources :business_submissions, only: [:index]
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   resources :business_submissions, only: [:show, :edit, :update]
 
 
-  # get "business_positions", to: "business_positions#index", as: "business_positions"
+
 
 resources :business_submissions, only: :index
 end

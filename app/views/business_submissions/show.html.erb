@@ -6,6 +6,8 @@
   <div class="card-job-show mb-2">
     <div class="d-flex justify-content-between align-items-end w-100">
     </div>
+    <% if @submission.cv.attachment %>
     <%= cl_image_tag("#{@submission.cv.key}.jpg", ) %>
+    <% end %>
   </div>
 </div>
